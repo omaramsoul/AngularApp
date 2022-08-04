@@ -1,0 +1,129 @@
+<div class="grid">
+    <div class="col-12">
+
+      <!-- Tableau qui affiche le resultat du client cherché -->
+      <div class="clientContainer">
+        <div class="cilentInfoContainer" [ngStyle]="{'display': ''}" >
+        <table class="cltInfoTable" >
+          
+            <tr>
+            <th class="tableHeader">N° Client</th>
+            <th class="tableHeader">Raison Sociale ou Nom</th>
+            <th class="tableHeader">Attaché commercial</th>
+            <th class="tableHeader">Siren</th>  
+            </tr>
+            <tr>
+            <!-- <td class="tableData">{{client.clienacli}}</td>
+            <td class="tableData">{{client.clienara1}}</td>
+            <td class="tableData">{{client.clienares}}</td>
+            <td class="tableData">{{client.clienacli}}</td> -->
+            </tr>
+        </table>
+        </div>
+    </div>
+
+        <div class="">
+
+  <!--  -->
+  <div class="card" >   
+      <div class="">
+      
+
+        
+        <button pButton pRipple label="" class="addNewTabView" icon="pi pi-plus" (click)="addNewTabView($event)"></button>
+        <p-tabView id="closableTabView" [scrollable]="true">
+            <p-tabPanel  [closable]="true" *ngFor="let tab of tabs">
+
+              <ng-template pTemplate="header">
+                <label for="">{{tab.header}} </label>
+                <button pButton pRipple type="button" icon="pi pi-pencil pencil-edit" class="p-button p-button-text" (click)="showDialog(tab)"></button>
+              </ng-template>
+
+              <div class="gridsterContainer">
+
+                <app-add-card></app-add-card>
+
+                <gridster [options]="options" style="position: static;">
+
+                    <gridster-item [item]="item" *ngFor="let item of dashboard" style="z-index: 1!important;">
+
+                      <div class="card-title" [ngStyle]="{'background-color': item.color}">
+                        <div class="title">
+                          {{item.cardTitle}}
+                        </div>
+                        <div class="card-settings">
+                          <button mat-icon-button [matMenuTriggerFor]="menu" class="card-settings-button">
+                            <mat-icon>more_vert</mat-icon>
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button mat-menu-item>
+                              <mat-icon>refresh</mat-icon>
+                              <span>Rafraichir</span>
+                            </button>
+                            <button mat-menu-item  [matMenuTriggerFor]="color" aria-label="Example icon-button with a menu">
+                              <mat-icon>invert_colors</mat-icon>
+                              <span class="menuItemText">Changer de couleur</span>
+                            </button>
+            
+                            <mat-menu #color="matMenu" id="colorsMenu" style="height: 1px !important;">
+                              <button mat-color-item class="colorBox box1 box" (click)="changeCardColor(item, '#e14a0c')">
+                              </button >
+                              <button mat-color-item class="colorBox box2 box" (click)="changeCardColor(item, '#7c0cc0')">
+                              </button>
+                              <button mat-color-item class="colorBox box3 box" (click)="changeCardColor(item, '#c1bf04')">
+                              </button>
+                              <button mat-color-item class="colorBox box4 box" (click)="changeCardColor(item, '#148ca4')">
+                              </button >
+                              <button mat-color-item class="colorBox box5 box" (click)="changeCardColor(item, '#4cc0a8')">
+                              </button >
+                              <button mat-color-item class="colorBox box6 box" (click)="changeCardColor(item, '#4c68d4')">
+                              </button >
+                              <button mat-color-item class="colorBox box7 box" (click)="changeCardColor(item, '#1468a8')">
+                              </button >
+                              <button mat-color-item class="colorBox box8 box" (click)="changeCardColor(item, '#50687c')">
+                              </button >
+                            </mat-menu>
+            
+                            <button mat-menu-item (click)="removeItem(item)">
+                              <mat-icon>delete_outline</mat-icon>
+                              <span>Supprimer</span>
+                            </button>
+                          </mat-menu>
+                          <!-- <button type="button" pButton icon="pi pi-ellipsis-v" (click)="menu.toggle($event)" (click)="setItem(item)" style="float: right;" id="card-setting"></button>
+                          <p-menu #menu [popup]="true" appendTo="body" [model]="menuItems"></p-menu> -->
+                        </div>
+                      </div>
+
+                    </gridster-item>
+
+
+                </gridster>
+              </div>
+
+            </p-tabPanel>
+        </p-tabView>
+
+      </div>
+
+
+      <p-dialog header="Modifier Nom Onglet" [(visible)]="display" [draggable]="true" [resizable]="false">
+        <div>
+            <label for="Title"></label>
+            <input id="float-input" type="text" [(ngModel)]="selectedItem.header" class="p-float-label" style="margin-top: 50px; width: 300px; height: 50px;" pInputText>
+        </div>
+        <ng-template pTemplate="footer">
+          <p-button icon="pi pi-check" (click)="display=false" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+      </p-dialog>
+
+
+    </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+

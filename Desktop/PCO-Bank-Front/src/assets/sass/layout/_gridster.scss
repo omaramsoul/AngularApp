@@ -1,0 +1,169 @@
+.card {
+    height: 100rem;
+}
+
+.gridsterContainer {
+    // la longeur du gridster
+    height: 50rem;
+}
+
+gridster {
+    background-color: white;
+    margin-top: 10px;
+}
+
+:host::ng-deep gridster-preview {
+    background-color: white;
+}
+
+.addNewTabView {
+    float: right;
+    background-color: #0d89ec;
+    margin-left: 1rem;
+    height: 2rem;
+    width: 2rem;
+}
+
+.p-tabview {
+    height: 50rem !important;
+}
+
+app-add-tab {
+    margin-right: -14px;
+    margin-bottom: 5px;
+}
+
+.pencil-edit {
+    color: #6c757d;
+}
+
+gridster-item {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black ;
+}
+
+.card-title {
+    height: 45px;
+    background-color: #2196F3;
+    border-radius: 10px;
+    padding: 5px 20px;
+    border-bottom: 1px solid black;
+}
+
+.title {
+    float: left;
+    text-align: center;
+    padding-left: 10px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    margin-top: 6px;
+    font-weight: 400;
+}
+
+.kebab-icon {
+    float: right;
+}
+
+.kebab-icon-container:hover {
+    background-color: none;
+}
+
+:host::ng-deep .p-menu-overlay {
+    position:static;
+}
+
+.cltInfoTable, th, td {
+    
+    border: 1px solid rgba(0,0,0,.125);
+    width: 100px;
+    height: 50px;
+    table-layout:fixed;
+     
+}
+
+.cltInfoTable {
+    margin-bottom: 1rem;
+    margin-right: 0%;
+}
+
+.cltInfoTable th {background-color: rgba(0,0,0,.125);}
+
+.tableHeader {
+    width: 15rem;
+    height: 1rem;
+    padding-left: 10px;
+}
+
+.tableData {
+    padding-left: 10px;
+    height: 2rem;
+}
+
+app-add-card {
+    margin-bottom: 10rem;
+}
+
+.card-settings {
+    background-color: none;
+}
+
+.card-settings-button {
+    background: none ;
+    border-style: none;
+    color: white;
+    float: right;
+    cursor: pointer;
+    outline: none;
+}
+
+.redBox, .greenBox, .yellowBox {
+    border-radius: 2px;
+    height: 25px;
+    width: 25px;
+    border-style: none;
+    margin: 5px;
+    /* border: 1px solid black; */
+}
+
+.colorBox{
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(113, 82, 34);
+    border-style: none;
+}
+
+.box {
+    margin: 0px 3px;
+}
+
+.box1 {
+    background-color: #e14a0c;
+}
+.box2 {
+    background-color: #7c0cc0;
+}
+.box3 {
+    background-color: #c1bf04;
+}
+.box4 {
+    background-color: #148ca4;
+}
+.box5 {
+    background-color: #4cc0a8;
+}
+.box6 {
+    background-color: #4c68d4;
+}
+.box7 {
+    background-color: #1468a8;
+}
+.box8 {
+    background-color: #50687c;
+}
+
+:host::ng-deep gridster .fixed {
+    position: static !important;
+}
