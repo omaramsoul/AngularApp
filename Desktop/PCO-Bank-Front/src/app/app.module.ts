@@ -135,6 +135,7 @@ import {PhotoService} from './demo/service/photoservice';
 import {ProductService} from './demo/service/productservice';
 import {BreadcrumbService} from './app.breadcrumb.service';
 import {MenuService} from './app.menu.service';
+import { ClientService } from './demo/service/client.service';
 
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -146,6 +147,8 @@ import { AddCardComponent } from './demo/view/add-card/add-card.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 
+import { DynamicHooksModule, HookParserEntry } from 'ngx-dynamic-hooks';
+
 
 
 FullCalendarModule.registerPlugins([
@@ -153,6 +156,12 @@ FullCalendarModule.registerPlugins([
     timeGridPlugin,
     interactionPlugin
 ]);
+
+
+const componentParsers: Array<HookParserEntry> = [
+    // {component: ExampleComponent},
+    // ...
+];
 
 @NgModule({
     imports: [
@@ -245,6 +254,10 @@ FullCalendarModule.registerPlugins([
         GridsterModule,
         MatIconModule,
         MatMenuModule,
+        DynamicHooksModule,
+        DynamicHooksModule.forRoot({
+            globalParsers: componentParsers
+          }),
         
         
     ],
@@ -287,14 +300,14 @@ FullCalendarModule.registerPlugins([
         AppAccessdeniedComponent,
         BlocksComponent,
         BlockViewer,
-        AddCardComponent,
-        
+        AddCardComponent,        
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         CountryService, CustomerService, EventService, IconService, NodeService,
-        PhotoService, ProductService, MenuService, BreadcrumbService
+        PhotoService, ProductService, MenuService, BreadcrumbService, ClientService
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [ ],
 })
 export class AppModule { }

@@ -3,21 +3,23 @@
 
       <!-- Tableau qui affiche le resultat du client cherché -->
       <div class="clientContainer">
-        <div class="cilentInfoContainer" [ngStyle]="{'display': ''}" >
+        <div class="cilentInfoContainer">
         <table class="cltInfoTable" >
-          
+
             <tr>
             <th class="tableHeader">N° Client</th>
             <th class="tableHeader">Raison Sociale ou Nom</th>
             <th class="tableHeader">Attaché commercial</th>
             <th class="tableHeader">Siren</th>  
             </tr>
-            <tr>
-            <!-- <td class="tableData">{{client.clienacli}}</td>
-            <td class="tableData">{{client.clienara1}}</td>
-            <td class="tableData">{{client.clienares}}</td>
-            <td class="tableData">{{client.clienacli}}</td> -->
-            </tr>
+            <tbody >
+              <tr>
+                <td class="tableData">{{client?.clienacli}}</td>
+                <td class="tableData">{{client?.clienara1}}</td>
+                <td class="tableData">{{client?.clienares}}</td>
+                <td class="tableData">{{client?.clienacli}}</td>
+                </tr>
+            </tbody>
         </table>
         </div>
     </div>
@@ -30,12 +32,12 @@
       
 
         
-        <button pButton pRipple label="" class="addNewTabView" icon="pi pi-plus" (click)="addNewTabView($event)"></button>
+        <button pButton pRipple label="" class="addNewTabView" icon="pi pi-plus" (click)="addNewTabView()"></button>
         <p-tabView id="closableTabView" [scrollable]="true">
             <p-tabPanel  [closable]="true" *ngFor="let tab of tabs">
 
               <ng-template pTemplate="header">
-                <label for="">{{tab.header}} </label>
+                <label>{{tab.header}} </label>
                 <button pButton pRipple type="button" icon="pi pi-pencil pencil-edit" class="p-button p-button-text" (click)="showDialog(tab)"></button>
               </ng-template>
 
@@ -93,6 +95,12 @@
                           <p-menu #menu [popup]="true" appendTo="body" [model]="menuItems"></p-menu> -->
                         </div>
                       </div>
+
+                      <div class="contentBody">
+
+                        <ngx-dynamic-hooks [content]="item.content"></ngx-dynamic-hooks>
+
+                      </div>                      
 
                     </gridster-item>
 

@@ -15,7 +15,7 @@
     <div id="topbar-icons" class="animated"
          [ngClass]="{'topbar-icons-visible flipInX':appMain.topMenuActive,'flipOutX':appMain.topMenuLeaving}">
             <span class="topbar-search" (click)="appMain.onSearchClick()">
-                <input type="text" placeholder="Chercher client" class="search-bar-field"/>
+                <input type="text" placeholder="Chercher client" class="search-bar-field" [(ngModel)]="clientId" (change)="getClientIdValue()"/>
                 <span class="topbar-search-icon pi pi-search"></span>
             </span>
         <a href="#">
@@ -28,3 +28,4 @@
         </a>
     </div>
 </div>
+

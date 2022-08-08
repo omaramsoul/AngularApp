@@ -1,4 +1,5 @@
-import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
+import { ClientService } from './../service/client.service';
+import { Component, ChangeDetectorRef, OnInit, Injectable } from '@angular/core';
 import {BreadcrumbService} from '../../app.breadcrumb.service';
 import { CompactType, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
 import { MenuItem, PrimeNGConfig } from 'primeng/api';
@@ -8,6 +9,10 @@ import { Menu } from 'primeng/menu';
     templateUrl: './vgc.component.html',
     styleUrls: ['../../../assets/sass/layout/_gridster.scss'],
 })
+// 
+// @Injectable({
+//   providedIn: 'root'
+// })
 export class EmptyDemoComponent implements OnInit{
 
   selectedItem :any= {}; // holder for tab object
@@ -18,15 +23,22 @@ export class EmptyDemoComponent implements OnInit{
     {header: "header"}
   ];
   menuItems: MenuItem[];
-  hide: boolean;
   cardItem: any;
+  client: any;
+  detectChanges: any;
+  
 
     constructor(private breadcrumbService: BreadcrumbService,
                 private changeDetection: ChangeDetectorRef,
-                private primengConfig: PrimeNGConfig) {
+                private primengConfig: PrimeNGConfig,
+                private clientService: ClientService) {
         this.breadcrumbService.setItems([
             {label: 'Empty Page'}
         ]);
+        this.detectChanges = clientService.searchChange.subscribe((value) => {
+          this.client = clientService.getClient();
+        })
+        
     }
 
     options: GridsterConfig;
@@ -63,7 +75,7 @@ export class EmptyDemoComponent implements OnInit{
      };
 
      this.dashboard = [];
-
+     
    }
 
    changedOptions() {
@@ -79,8 +91,8 @@ export class EmptyDemoComponent implements OnInit{
    }
 
 
-  addNewTabView(tab: any) {
-    this.tabs.push({header: "onglet"})
+  addNewTabView() {
+    this.tabs.push({header: "onglet"});
   }
 
   showDialog(selectedItem) {
