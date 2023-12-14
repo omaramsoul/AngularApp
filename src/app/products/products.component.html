@@ -1,7 +1,26 @@
 <div class="p-3">
     <div class="card">
         <div class="card-body">
-            <p>Product component</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Checked</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (product of products; track $index) {
+                        <tr>
+                            <td>{{product.id}}</td>
+                            <td>{{product.title}}</td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.checked}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
