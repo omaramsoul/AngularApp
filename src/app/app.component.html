@@ -1,0 +1,11 @@
+<nav>
+  <ul class="nav nav-pills">
+    @for (component of components; track $index) {
+      <li><button [routerLink]="component.route" class="btn btn-outline-primary m-3">{{component.title}}</button></li>
+    }
+    <!-- <li><button routerLink="home" class="btn btn-outline-primary m-3">Home</button></li>
+    <li><button routerLink="/products" class="btn btn-outline-primary m-3">Products</button></li>
+    <li><button routerLink="/new-product" class="btn btn-outline-primary m-3">New product</button></li> -->
+  </ul>
+</nav>
+<router-outlet></router-outlet>
