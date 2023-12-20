@@ -3,12 +3,7 @@
         <div class="card-body">
             <table class="table">
                 <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Price</th>
-                        <th>Checked</th>
-                    </tr>
+                    
                 </thead>
                 <tbody>
                     @for (product of products; track $index) {
@@ -16,7 +11,9 @@
                             <td>{{product.id}}</td>
                             <td>{{product.title}}</td>
                             <td>{{product.price}}</td>
-                            <td>{{product.checked}}</td>
+                            <td>
+                                <button (click)="handleCheckProduct(product)" class="btn btn-outline-success"><i [class]="product.checked ? 'bi bi-check' : 'bi bi-circle'"></i></button>
+                            </td>
                         </tr>
                     }
                 </tbody>
