@@ -1,16 +1,10 @@
 {
   "products": [
     {
-      "id": 3,
-      "title": "Iphone 15",
-      "price": 1360,
-      "checked": false
-    },
-    {
       "id": 4,
       "title": "Iphone 12",
       "price": 560,
-      "checked": true
+      "checked": false
     }
   ]
 }
