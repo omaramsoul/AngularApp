@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../services/products.service';
 import { Product } from '../models/product.model';
-import { Observable } from 'rxjs';
+import { Observable, filter, map } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -18,18 +18,18 @@ export class ProductsComponent implements OnInit{
   constructor(private productsService: ProductsService) {}
 
   ngOnInit() {
-    // this.productsService.getProducts().subscribe(
-    //   {
-    //     next: data => this.products = data,
-    //     error: err => console.log(err)
-    //   });
-
     this.products$ = this.productsService.getProducts();
   }
 
   handleCheckProduct(product: Product) {
     this.productsService.updateCheckedProduct(product).subscribe({
       next: updatedProduct => product.checked = updatedProduct.checked
+    })
+  }
+
+  deleteProduct(product: Product) {
+    this.productsService.deleteProduct(product).subscribe({
+      next: (data: any) => console.log(data)
     })
   }
 }
