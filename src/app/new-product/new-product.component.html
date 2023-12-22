@@ -2,9 +2,17 @@
     <div class="card">
         <div class="card-body">
             <form [formGroup]="formGrp" (ngSubmit)="submitForm()">
-                <div>
-                    <label>title</label>
-                    <input type="text" id="title" formControlName="title">
+                <div class="form-group">
+                    <label for="title" class="m-3">Title</label>
+                    <input class="p-2" type="text" id="title" formControlName="title">
+                </div>
+                <div class="form-group">
+                    <label for="price" class="m-3">Price</label>
+                    <input class="p-2" type="text" id="price" formControlName="price">
+                </div>
+                <div class="form-group">
+                    <label for="checked" class="m-3">Checked</label>
+                    <input class="p-2" type="checkbox" id="checked" formControlName="checked">
                 </div>
                 <button class="btn btn-outline-success">Submit</button>
             </form>

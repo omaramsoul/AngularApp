@@ -7,82 +7,22 @@
       "checked": false
     },
     {
-      "title": null,
-      "price": 0,
-      "checked": null,
+      "title": "MacBook 2015 pro",
+      "price": "400",
+      "checked": true,
       "id": 4
     },
     {
-      "title": "omar",
-      "price": 0,
-      "checked": null,
+      "title": "Iphone XR",
+      "price": "280",
+      "checked": false,
       "id": 5
     },
     {
-      "title": "",
-      "price": 0,
-      "checked": null,
+      "title": "HP ProBook",
+      "price": "450",
+      "checked": true,
       "id": 6
-    },
-    {
-      "title": "omaaaaar",
-      "price": 0,
-      "checked": null,
-      "id": 7
-    },
-    {
-      "title": "",
-      "price": 0,
-      "checked": null,
-      "id": 8
-    },
-    {
-      "title": null,
-      "price": 0,
-      "checked": null,
-      "id": 9
-    },
-    {
-      "title": "",
-      "price": 0,
-      "checked": null,
-      "id": 10
-    },
-    {
-      "title": "",
-      "price": 0,
-      "checked": null,
-      "id": 11
-    },
-    {
-      "title": "",
-      "price": 0,
-      "checked": null,
-      "id": 12
-    },
-    {
-      "title": "",
-      "price": 0,
-      "checked": null,
-      "id": 13
-    },
-    {
-      "title": "",
-      "price": 0,
-      "checked": null,
-      "id": 14
-    },
-    {
-      "title": "",
-      "price": 0,
-      "checked": null,
-      "id": 15
-    },
-    {
-      "title": "omar",
-      "price": 0,
-      "checked": null,
-      "id": 16
     }
   ]
 }
