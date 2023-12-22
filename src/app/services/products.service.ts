@@ -19,7 +19,11 @@ export class ProductsService {
     return this.http.patch<any>(`http://localhost:8089/products/${product.id}`, {checked: !product.checked})
   }
 
-  deleteProduct(product: Product) : Observable<Array<Product>>{
+  deleteProduct(product: Product) {
     return this.http.delete<any>(`http://localhost:8089/products/${product.id}`)
+  }
+
+  saveProduct(product: Product) : Observable<Product>{
+    return this.http.post<Product>(`http://localhost:8089/products`, product)
   }
 }

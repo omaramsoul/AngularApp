@@ -1,7 +1,13 @@
 <div class="p-3">
     <div class="card">
         <div class="card-body">
-            <p>New product component</p>
+            <form [formGroup]="formGrp" (ngSubmit)="submitForm()">
+                <div>
+                    <label>title</label>
+                    <input type="text" id="title" formControlName="title">
+                </div>
+                <button class="btn btn-outline-success">Submit</button>
+            </form>
         </div>
     </div>
 </div>

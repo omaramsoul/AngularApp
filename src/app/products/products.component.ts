@@ -29,9 +29,7 @@ export class ProductsComponent implements OnInit{
 
   deleteProduct(product: Product) {
     this.productsService.deleteProduct(product).subscribe({
-      next: deletedProduct => this.products$.pipe(      
-        map(data => data.filter(prd => prd == product))
-      )
+      next: (response: Product[]) => console.log(response.values)
     })
   }
 }
