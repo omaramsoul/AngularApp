@@ -13,12 +13,25 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductsComponent implements OnInit{
 
-  products$! : Observable<Array<Product>>;
+  products : Product[] = [];
+  totalPages: number = 1;
+  page: number = 1;
+  size: number = 3;
 
   constructor(private productsService: ProductsService) {}
 
   ngOnInit() {
-    this.products$ = this.productsService.getProducts();
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.productsService.getProducts(this.page, this.size).subscribe({
+      next: response => {
+        this.products = response.body as Product[];
+        console.log(response.headers.get('x-total-count'));
+        this.totalPages = parseInt(response.headers.get('x-total-count')!);
+      }
+    })
   }
 
   handleCheckProduct(product: Product) {
@@ -31,5 +44,10 @@ export class ProductsComponent implements OnInit{
     this.productsService.deleteProduct(product).subscribe({
       next: (response: Product[]) => console.log(response.values)
     })
+  }
+
+  handlePages(page: number) {
+    this.page = page;
+    this.getProducts();
   }
 }

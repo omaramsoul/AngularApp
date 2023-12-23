@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product.model';
@@ -11,8 +11,8 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts() : Observable<Array<Product>>{
-    return this.http.get<any>("http://localhost:8089/products")
+  getProducts(page: number, size: number){
+    return this.http.get(`http://localhost:8089/products?_page=${page}&_limit=${size}`, {observe: 'response'})
   }
 
   updateCheckedProduct(product: Product) {
