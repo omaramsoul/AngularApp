@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 export class ProductsComponent implements OnInit{
 
   products : Product[] = [];
-  totalPages: number = 1;
+  totalPages: number = 0;
   page: number = 1;
   size: number = 3;
 
@@ -29,8 +29,8 @@ export class ProductsComponent implements OnInit{
       next: (response) => {
         console.log(this.page + " " + this.size);
         this.products = response.body as Product[];
-        console.log(response.headers.get('x-total-count'));
-        this.totalPages = parseInt(response.headers.get('x-total-count')!);
+        let totalObjects = parseInt(response.headers.get('x-total-count')!);
+        this.totalPages = totalObjects % this.size == 0 ? totalObjects / this.size : Math.round(totalObjects / this.size) + 1;
       }
     })
   }

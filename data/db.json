@@ -1,12 +1,6 @@
 {
   "products": [
     {
-      "id": 3,
-      "title": "Iphone 13 pro",
-      "price": 960,
-      "checked": true
-    },
-    {
       "title": "MacBook 2015 pro",
       "price": "400",
       "checked": true,
@@ -29,6 +23,18 @@
       "price": "650",
       "checked": false,
       "id": 7
+    },
+    {
+      "title": "PC portable",
+      "price": "450",
+      "checked": true,
+      "id": 8
+    },
+    {
+      "title": "Iphone 17",
+      "price": "3000",
+      "checked": true,
+      "id": 9
     }
   ]
 }
