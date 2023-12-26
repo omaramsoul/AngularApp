@@ -26,7 +26,8 @@ export class ProductsComponent implements OnInit{
 
   getProducts() {
     this.productsService.getProducts(this.page, this.size).subscribe({
-      next: response => {
+      next: (response) => {
+        console.log(this.page + " " + this.size);
         this.products = response.body as Product[];
         console.log(response.headers.get('x-total-count'));
         this.totalPages = parseInt(response.headers.get('x-total-count')!);

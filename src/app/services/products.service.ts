@@ -12,7 +12,7 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getProducts(page: number, size: number){
-    return this.http.get(`http://localhost:8089/products?_page=${page}&_limit=${size}`, {observe: 'response'})
+    return this.http.get(`http://localhost:8089/products?_page=${page}&_limit=${size}`, {observe: 'response', transferCache: true})
   }
 
   updateCheckedProduct(product: Product) {
