@@ -3,13 +3,13 @@
     {
       "title": "MacBook 2015 pro",
       "price": "400",
-      "checked": true,
+      "checked": false,
       "id": 4
     },
     {
       "title": "HP ProBook",
       "price": "450",
-      "checked": true,
+      "checked": false,
       "id": 5
     },
     {

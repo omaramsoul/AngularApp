@@ -21,6 +21,7 @@ export class ProductsComponent implements OnInit{
   }
 
   getProducts() {
+    this.appState.productsState.status = "LOADING";
     this.productsService.getProducts(this.appState.productsState.page, this.appState.productsState.size).subscribe({
       next: (response) => {
         this.appState.productsState.products = response.body as Product[];
@@ -29,6 +30,7 @@ export class ProductsComponent implements OnInit{
         this.appState.productsState.totalPages = totalObjects % this.appState.productsState.size == 0 ? 
                                                  totalObjects / this.appState.productsState.size : 
                                                  Math.round(totalObjects / this.appState.productsState.size) + 1;
+        this.appState.productsState.status = "END";
       }
     })
   }

@@ -1,0 +1,12 @@
+<nav>
+    <ul class="nav nav-pills">
+      @for (component of components; track $index) {
+        <li><button [routerLink]="component.route" (click)="setCurrentComponent(component.title)" [class]="component.title == currentComponent ? 'btn btn-primary m-3' : 'btn btn-outline-primary m-3'">{{component.title}}</button></li>
+      }
+      @if (appState.productsState.status === "LOADING") {
+        <li class="m-3">
+          <div class="spinner-border text-primary" role="status"></div>
+        </li>
+      }
+    </ul>
+</nav>

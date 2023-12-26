@@ -12,7 +12,8 @@ export class AppStateService {
     totalProducts: 0,
     totalPages: 0, 
     page: 1,
-    size: 3
+    size: 3,
+    status: ""
   }
 
   constructor() { }
