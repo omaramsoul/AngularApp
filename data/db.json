@@ -9,13 +9,13 @@
     {
       "title": "HP ProBook",
       "price": "450",
-      "checked": false,
+      "checked": true,
       "id": 5
     },
     {
       "title": "HP Elitebook",
       "price": "250",
-      "checked": true,
+      "checked": false,
       "id": 6
     },
     {

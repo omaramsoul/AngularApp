@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from './services/products.service';
+import { DashboardComponent } from "./dashboard/dashboard.component";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    imports: [CommonModule, RouterOutlet, RouterLink, DashboardComponent]
 })
 export class AppComponent {
   

@@ -1,8 +1,8 @@
+import { Product } from './../models/product.model';
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../services/products.service';
-import { Product } from '../models/product.model';
-import { Observable, filter, map } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { AppStateService } from '../services/app-state.service';
 
 @Component({
   selector: 'app-products',
@@ -13,24 +13,22 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductsComponent implements OnInit{
 
-  products : Product[] = [];
-  totalPages: number = 0;
-  page: number = 1;
-  size: number = 3;
-
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsService,
+              public appState: AppStateService) {}
 
   ngOnInit() {
     this.getProducts();
   }
 
   getProducts() {
-    this.productsService.getProducts(this.page, this.size).subscribe({
+    this.productsService.getProducts(this.appState.productsState.page, this.appState.productsState.size).subscribe({
       next: (response) => {
-        console.log(this.page + " " + this.size);
-        this.products = response.body as Product[];
+        this.appState.productsState.products = response.body as Product[];
         let totalObjects = parseInt(response.headers.get('x-total-count')!);
-        this.totalPages = totalObjects % this.size == 0 ? totalObjects / this.size : Math.round(totalObjects / this.size) + 1;
+        this.appState.productsState.totalProducts = totalObjects;
+        this.appState.productsState.totalPages = totalObjects % this.appState.productsState.size == 0 ? 
+                                                 totalObjects / this.appState.productsState.size : 
+                                                 Math.round(totalObjects / this.appState.productsState.size) + 1;
       }
     })
   }
@@ -48,7 +46,7 @@ export class ProductsComponent implements OnInit{
   }
 
   handlePages(page: number) {
-    this.page = page;
+    this.appState.productsState.page = page;
     this.getProducts();
   }
 }

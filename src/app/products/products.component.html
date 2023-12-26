@@ -6,7 +6,7 @@
                     
                 </thead>
                 <tbody>
-                    @for (product of products ; track $index) {
+                    @for (product of appState.productsState.products ; track $index) {
                         <tr>
                             <td>{{product.id}}</td>
                             <td>{{product.title}}</td>
@@ -22,7 +22,7 @@
                 </tbody>
             </table>
             <ul class="nav nav-pills">
-                @for (page of [].constructor(this.totalPages); track $index) {
+                @for (page of [].constructor(appState.productsState.totalPages); track $index) {
                     <li class="p-2">
                         <button (click)="handlePages($index+1)" class="btn btn-outline-success">{{$index+1}}</button>
                     </li>
